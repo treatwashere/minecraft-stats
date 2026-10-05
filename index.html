@@ -19,6 +19,7 @@
       <a href="#skins">Skins</a>
       <a href="#capes">Capes</a>
     </nav>
+    <a id="loginButton" class="login-button" href="/api/auth/login">Sign in with Microsoft</a>
   </header>
 
   <main>
@@ -31,6 +32,11 @@
         <button type="submit">Search</button>
       </form>
       <div id="status" class="status" role="status">Ready to search.</div>
+      <div id="loginNotice" class="login-notice">
+        <strong>Want your account data?</strong>
+        <span>Sign in with your Microsoft account to load your Minecraft profile, current cape, and available Minecraft entitlements.</span>
+        <a href="/api/auth/login">Sign in with Microsoft</a>
+      </div>
     </section>
 
     <section id="overview" class="profile-card panel">
@@ -47,6 +53,20 @@
       </div>
     </section>
 
+    <section id="account" class="section account-section">
+      <div class="section-heading"><div><span class="eyebrow">CONNECTED ACCOUNT</span><h2>Microsoft account</h2></div></div>
+      <div class="account-card panel">
+        <div class="account-avatar-wrap"><img id="accountAvatar" src="https://mc-heads.net/avatar/Steve/120" alt="Minecraft account avatar"></div>
+        <div class="account-info">
+          <div class="pill">NOT SIGNED IN</div>
+          <h3 id="accountName">Connect your Microsoft account</h3>
+          <p id="accountStatus">Sign in to load account-authorized Minecraft data without exposing your Microsoft password to this website.</p>
+          <div id="entitlementList" class="entitlements"></div>
+        </div>
+        <a id="accountAction" class="secondary-button" href="/api/auth/login">Sign in</a>
+      </div>
+    </section>
+
     <section id="stats" class="section">
       <div class="section-heading">
         <div><span class="eyebrow">PLAYER DATA</span><h2>Statistics</h2></div>
@@ -60,7 +80,7 @@
         <article class="stat-card"><span>◆</span><strong id="itemsCrafted">—</strong><label>Items crafted</label></article>
         <article class="stat-card"><span>☠</span><strong id="deaths">—</strong><label>Deaths</label></article>
       </div>
-      <div class="notice">Minecraft does not expose a universal public account endpoint containing every in-game statistic. The dashboard is built to combine supported public profile data with user-authorized or server/world data for detailed statistics.</div>
+      <div class="notice">Important: Minecraft does not provide a universal public endpoint containing every Java world statistic. This dashboard shows account/profile data that the official services expose and leaves unavailable in-game statistics blank rather than inventing them.</div>
     </section>
 
     <section id="skins" class="section">
@@ -80,8 +100,8 @@
     <section id="capes" class="section">
       <div class="section-heading"><div><span class="eyebrow">COSMETICS</span><h2>Capes</h2></div></div>
       <div id="capeGrid" class="cape-grid">
-        <article class="cape-card"><div class="cape-icon">◇</div><div><h3>Current cape</h3><p id="capeStatus">Search for a player to check their current Java cape.</p></div></article>
-        <article class="cape-card placeholder"><div class="cape-icon">+</div><div><h3>All Minecraft capes</h3><p>Account-wide cape history and cross-edition entitlements will be connected when the required account data is available.</p></div></article>
+        <article class="cape-card"><div class="cape-icon">◇</div><div><h3>Current cape</h3><p id="capeStatus">Search for a player or sign in to check the current Java cape.</p><img id="capeImage" class="cape-image" alt="Current Minecraft cape"></div></article>
+        <article class="cape-card placeholder"><div class="cape-icon">+</div><div><h3>All Minecraft capes</h3><p>Historical and cross-edition cape ownership needs additional account data. The connected profile section shows the cape currently exposed by Minecraft Services.</p></div></article>
       </div>
     </section>
 
