@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Minecraft Stats — explore Minecraft player profiles, skins, capes, achievements and statistics.">
+  <title>Minecraft Stats</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Minecraft Stats home">
+      <span class="brand-mark">M</span>
+      <span>Minecraft Stats</span>
+    </a>
+    <nav>
+      <a href="#overview">Overview</a>
+      <a href="#stats">Stats</a>
+      <a href="#skins">Skins</a>
+      <a href="#capes">Capes</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">MINECRAFT PLAYER DATABASE</div>
+      <h1>Every stat.<br><span>One profile.</span></h1>
+      <p>Look up a Minecraft player and explore their profile, statistics, skins, capes, achievements, and more.</p>
+      <form id="lookupForm" class="search">
+        <input id="usernameInput" name="username" autocomplete="off" maxlength="16" placeholder="Enter a Java username…" aria-label="Minecraft Java username" required>
+        <button type="submit">Search</button>
+      </form>
+      <div id="status" class="status" role="status">Ready to search.</div>
+    </section>
+
+    <section id="overview" class="profile-card panel">
+      <div class="profile-avatar-wrap">
+        <img id="playerAvatar" class="player-avatar" src="https://mc-heads.net/avatar/Steve/160" alt="Minecraft player avatar">
+      </div>
+      <div class="profile-main">
+        <div class="pill">JAVA EDITION</div>
+        <h2 id="playerName">Search for a player</h2>
+        <p id="playerUuid">Enter a Java username above to load the profile.</p>
+      </div>
+      <div class="profile-actions">
+        <a id="skinLink" class="secondary-button" href="#" target="_blank" rel="noreferrer">View skin</a>
+      </div>
+    </section>
+
+    <section id="stats" class="section">
+      <div class="section-heading">
+        <div><span class="eyebrow">PLAYER DATA</span><h2>Statistics</h2></div>
+        <span class="muted">Expandable as more Minecraft data sources are connected</span>
+      </div>
+      <div class="stat-grid">
+        <article class="stat-card"><span>⏱</span><strong id="playtime">—</strong><label>Playtime</label></article>
+        <article class="stat-card"><span>▦</span><strong id="blocksPlaced">—</strong><label>Blocks placed</label></article>
+        <article class="stat-card"><span>⌘</span><strong id="blocksMined">—</strong><label>Blocks mined</label></article>
+        <article class="stat-card"><span>⚔</span><strong id="mobsKilled">—</strong><label>Mobs killed</label></article>
+        <article class="stat-card"><span>◆</span><strong id="itemsCrafted">—</strong><label>Items crafted</label></article>
+        <article class="stat-card"><span>☠</span><strong id="deaths">—</strong><label>Deaths</label></article>
+      </div>
+      <div class="notice">Minecraft does not expose a universal public account endpoint containing every in-game statistic. The dashboard is built to combine supported public profile data with user-authorized or server/world data for detailed statistics.</div>
+    </section>
+
+    <section id="skins" class="section">
+      <div class="section-heading"><div><span class="eyebrow">COSMETICS</span><h2>Java skins</h2></div></div>
+      <div class="cosmetic-grid">
+        <article class="cosmetic-card">
+          <div class="skin-preview"><img id="skinPreview" src="https://mc-heads.net/body/Steve/240" alt="Minecraft skin preview"></div>
+          <div class="cosmetic-info"><h3>Current skin</h3><p id="skinStatus">Search for a player to load their current skin.</p></div>
+        </article>
+        <article class="cosmetic-card placeholder">
+          <div class="empty-icon">＋</div>
+          <div><h3>Skin history</h3><p>Historical skins will be added through a dedicated skin-history data source.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="capes" class="section">
+      <div class="section-heading"><div><span class="eyebrow">COSMETICS</span><h2>Capes</h2></div></div>
+      <div id="capeGrid" class="cape-grid">
+        <article class="cape-card"><div class="cape-icon">◇</div><div><h3>Current cape</h3><p id="capeStatus">Search for a player to check their current Java cape.</p></div></article>
+        <article class="cape-card placeholder"><div class="cape-icon">+</div><div><h3>All Minecraft capes</h3><p>Account-wide cape history and cross-edition entitlements will be connected when the required account data is available.</p></div></article>
+      </div>
+    </section>
+
+    <section id="games" class="section">
+      <div class="section-heading"><div><span class="eyebrow">MINECRAFT ECOSYSTEM</span><h2>Games & editions</h2></div></div>
+      <div class="game-grid">
+        <article class="game-card active"><div class="game-logo">☕</div><div><h3>Java Edition</h3><p>Profile, skin and cape data</p></div><span>Available</span></article>
+        <article class="game-card"><div class="game-logo">◆</div><div><h3>Bedrock Edition</h3><p>Microsoft/Xbox account data</p></div><span>Planned</span></article>
+        <article class="game-card"><div class="game-logo">▣</div><div><h3>Minecraft Dungeons</h3><p>Microsoft account data</p></div><span>Planned</span></article>
+        <article class="game-card"><div class="game-logo">⬡</div><div><h3>Minecraft Legends</h3><p>Microsoft account data</p></div><span>Planned</span></article>
+      </div>
+    </section>
+
+    <section class="section roadmap">
+      <div class="section-heading"><div><span class="eyebrow">ROADMAP</span><h2>What we're building</h2></div></div>
+      <div class="roadmap-grid">
+        <div class="roadmap-item done"><b>01</b><div><h3>Java profile lookup</h3><p>Username, UUID and current avatar.</p></div></div>
+        <div class="roadmap-item"><b>02</b><div><h3>Detailed statistics</h3><p>Blocks, items, mobs, movement, deaths and more.</p></div></div>
+        <div class="roadmap-item"><b>03</b><div><h3>Skin & cape history</h3><p>Current and historical cosmetics.</p></div></div>
+        <div class="roadmap-item"><b>04</b><div><h3>Microsoft account data</h3><p>Cross-edition games, achievements and entitlements with secure sign-in.</p></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>Minecraft Stats</span><span>Not affiliated with Mojang or Microsoft.</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
